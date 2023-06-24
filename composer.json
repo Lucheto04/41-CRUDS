@@ -47,8 +47,7 @@
                 "./scripts/trainers",
                 "./scripts/tutors",
                 "./scripts/work_reference",
-                "./scripts/working_info",
-                "./scripts/"
+                "./scripts/working_info"
             ]
         }
     },
