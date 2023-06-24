@@ -1,0 +1,21 @@
+{
+    "name": "skylab-169/41-cruds",
+    "description": "Los pinches 41 CRUDS",
+    "license": "LTS",
+    "autoload": {
+        "psr-4": {
+            "App\\": [
+                "scripts/"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucheto04",
+            "email": "lucho.lgrg04@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.6"
+    }
+}
