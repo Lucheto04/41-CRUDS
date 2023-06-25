@@ -16,7 +16,11 @@ class subjects extends connect {
             $res = $this->conexion->prepare($this->eliminar);
             $res->bindValue("ID", $this->id);
             $res->execute();
-            $this->mensaje = ["Mensaje" => "Se elimino correctamente"];
+            if ($res->rowCount() > 0){
+                $this->mensaje = ["Mensaje" => "Se elimino correctamente"];
+            } else {
+                $this->mensaje = ["Mensaje" => "No se realizo ningun cambio"];
+            }
         } catch (\PDOException $e) {
             $this->mensaje = ["Code" => $e->getCode(), "Mensaje" => $res->errorInfo()[2]];
         } finally {
@@ -30,7 +34,11 @@ class subjects extends connect {
             $res->bindValue("ID", $this->id);
             $res->bindValue("nombre_sujeto", $this->name_subject);
             $res->execute();
-            $this->mensaje = ["Mensaje" => "Se añadio correctamente"];
+            if ($res->rowCount() > 0){
+                $this->mensaje = ["Mensaje" => "Se añadio correctamente"];
+            } else {
+                $this->mensaje = ["Mensaje" => "No se realizo ningun cambio"];
+            }
         } catch (\PDOException $e) {
             $this->mensaje = ["Code" => $e->getCode(), "Mensaje" => $res->errorInfo()[2]];
         } finally {
@@ -44,8 +52,10 @@ class subjects extends connect {
             $res->bindValue("ID", $this->id);
             $res->bindValue("nombre_sujeto", $this->name_subject);
             $res->execute();
-            if ($res->rowCount() > 0) {
+            if ($res->rowCount() > 0){
                 $this->mensaje = ["Mensaje" => "Se actualizo correctamente"];
+            } else {
+                $this->mensaje = ["Mensaje" => "No se realizo ningun cambio"];
             }
         } catch (\PDOException $e) {
             $this->mensaje = ["Code" => $e->getCode(), "Mensaje" => $res->errorInfo()[2]];
@@ -58,7 +68,9 @@ class subjects extends connect {
         try {
             $res = $this->conexion->prepare($this->solicitar);
             $res->execute();
-            $this->mensaje = $res->fetchALL(\PDO::FETCH_ASSOC);
+            if ($res->rowCount() > 0){
+                $this->mensaje = ["Mensaje" => $res->fetchAll(\PDO::FETCH_ASSOC)];
+            }
         } catch (\PDOException $e) {
             $this->mensaje = ["Code" => $e->getCode(), "Mensaje" => $res->errorInfo()[2]];
         } finally {
