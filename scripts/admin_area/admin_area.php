@@ -76,6 +76,8 @@ class admin_area extends connect {
             $res->execute();
             if ($res->rowCount() > 0){
                 $this->mensaje = ["Mensaje" => $res->fetchAll(\PDO::FETCH_ASSOC)];
+            }  else {
+                $this->mensaje = ["Mensaje" => "No hay datos en esta tabla"];
             }
         }   catch (\PDOException $e) {
             $this->mensaje = ["Code" => $e->getCode(), "Mensaje" => $res->errorInfo()[2]];
