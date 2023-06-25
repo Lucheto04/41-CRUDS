@@ -10,13 +10,6 @@ class modules extends connect {
     function __construct(private $id = 1, public $name_module = 1,public $start_date = 1,public $end_date = 1,public $description = 1, public $duration_days = 1, public $id_theme =1){
         parent::__construct();
     } 
-    // [ID] => 1
-    // [nombre_modulo] => HTML ATTRIBUTE MOD 1
-    // [inicio] => 2023-02-27
-    // [final] => 2023-03-01
-    // [descripcion] => All HTML elements can have attributes
-    // [_dias] => 3
-    // [ID_1] => 1
     public function deleteAll_modules() {
         try {
             $res = $this->conexion->prepare($this->eliminar);
