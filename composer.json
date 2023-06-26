@@ -1,6 +1,6 @@
 {
-    "name": "skylab-105/41-cruds",
-    "description": "Los pinches 41 CRUDS",
+    "name": "apolt01-021/41-cruds",
+    "description": "los pinches 41 CRUD's",
     "license": "LTS",
     "autoload": {
         "psr-4": {
