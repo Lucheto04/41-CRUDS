@@ -86,7 +86,7 @@ class chapters extends connect {
         }   catch (\PDOException $e) {
             $this->mensaje = ["Code" => $e->getCode(), "Mensaje" => $res->errorInfo()[2]];
         }   finally {
-            print_r($this->mensaje);
+            print_r(json_encode($this->mensaje));
         } 
     }
 }
